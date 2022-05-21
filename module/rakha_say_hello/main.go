@@ -39,6 +39,9 @@ func EndApp() {
 	}
 	fmt.Println("Aplikasi Selesai")
 }
+func Add_Baru() {
+	fmt.Println("Rakha")
+}
 
 // func main() {
 // 	a := []Orang{
