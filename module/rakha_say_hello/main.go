@@ -19,11 +19,11 @@ func (orang Orang) GetName() string {
 	return orang.name
 }
 
-func say_hello(hasname HasName) {
+func Say_Helllo(hasname HasName) {
 	fmt.Println("Hello", hasname.GetName())
 }
-func is_valid(name string, block FilterTypeUser) {
-	defer endApp()
+func Is_Valid(name string, block FilterTypeUser) {
+	defer EndApp()
 	if block(name) {
 		panic("Admin Masuk")
 	} else {
@@ -31,7 +31,7 @@ func is_valid(name string, block FilterTypeUser) {
 	}
 
 }
-func endApp() {
+func EndApp() {
 	message := recover()
 	if message != nil {
 		fmt.Println("Error : ", message)
@@ -62,19 +62,19 @@ func endApp() {
 // 	fmt.Println()
 // 	say_hello(a[0])
 // }
-func do_filter(name string, id int) int {
+func Do_Filter(name string, id int) int {
 	if name == "Rakha" {
 		return 0
 	} else {
 		return id
 	}
 }
-func do_sum(filter Filter, value ...Orang) {
+func Do_sum(filter Filter, value ...Orang) {
 
 	total := 0
 	for _, data := range value {
 
-		is_valid(data.type_user, func(s string) bool {
+		Is_Valid(data.type_user, func(s string) bool {
 			return s == "Admin"
 		})
 		resultFilter := filter(data.name, data.id)
