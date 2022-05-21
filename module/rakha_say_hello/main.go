@@ -3,9 +3,9 @@ package rakha_say_hello
 import "fmt"
 
 type Orang struct {
-	id        int
-	name      string
-	type_user string
+	ID        int
+	Name      string
+	Type_User string
 }
 type Filter func(string, int) int
 
@@ -16,7 +16,7 @@ type HasName interface {
 }
 
 func (orang Orang) GetName() string {
-	return orang.name
+	return orang.Name
 }
 
 func Say_Helllo(hasname HasName) {
@@ -74,13 +74,12 @@ func Do_sum(filter Filter, value ...Orang) {
 	total := 0
 	for _, data := range value {
 
-		Is_Valid(data.type_user, func(s string) bool {
+		Is_Valid(data.Type_User, func(s string) bool {
 			return s == "Admin"
 		})
-		resultFilter := filter(data.name, data.id)
+		resultFilter := filter(data.Name, data.ID)
 		total = total + resultFilter
 
 	}
-
 	fmt.Println(total)
 }
